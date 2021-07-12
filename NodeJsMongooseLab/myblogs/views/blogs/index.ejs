@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Manet Nitivongsathit</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('../layout') %>
+    <div class="py-2">
+      <a href="/blogs/add" class="btn btn-primary">เขียนบทความ</a>
+    </div>
+    <hr>
+    <h3><%= data %></h3>
+    <p>By Manet nitivongsathit</p>
+    <hr>
+    <p>
+        <% Object.values(blogs).forEach(function(blog){ %>
+            <h4><b>บทความ : </b><%= blog.title %></h4>
+            <p><b>ผู้เขียน</b> <%= blog.author %></p>
+            <p><b>หมวดหมู่</b> <%= blog.category %></p>
+            <a href="/blogs/edit/<%= blog._id %>">แก้ไข</a>
+            <a href="/blogs/delete/<%= blog._id %>" onclick="return confirm('ต้องการลบหรือไม่ ?')">ลบ</a>
+            <hr>
+        <% }) %>
+    </p>
+  </body>
+</html>
